@@ -10,15 +10,15 @@ Note: Run the Bot using `launcher.py` and keep it running for an hour, so it syn
 
 ## Commands
 
-`/code [code]`
+`/code *[role] [code]`
 
-`/redeem [code]`
+`/redeem *[code]`
 
-`/create [code]`
+`/create *[code]`
 
-`/remove [code]`
+`/remove *[code]`
 
-`/log [channel]`
+`/log *[channel]`
 
 ### Create code
 Time Format: `1y 7d 3h 10m 30s`
