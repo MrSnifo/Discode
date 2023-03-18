@@ -25,7 +25,7 @@ DEALINGS IN THE SOFTWARE.
 from .bot import Bot
 
 __title__ = "Discode"
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __license__ = "MIT License"
 __author__ = "MrSniFo"
 __email__ = "Snifo@mail.com"

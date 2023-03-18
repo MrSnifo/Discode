@@ -25,6 +25,10 @@ DEALINGS IN THE SOFTWARE.
 # ------ Discord ------
 from discord import Embed
 
+# ------ Generating code ------
+from secrets import choice
+from string import ascii_uppercase, digits
+
 
 def text_to_seconds(text: str) -> int:
     seconds: int = 0
@@ -78,3 +82,22 @@ def embed_wrong(msg: str) -> Embed:
     """
     embed = Embed(description=f"**It seems something wrong** :speak_no_evil:\n{msg}", colour=0x36393f)
     return embed
+
+
+def gen_rnd_string(
+        n: int = 4
+) -> str:
+    return ''.join(
+        choice(
+            ascii_uppercase + digits
+        )
+        for _ in range(n)
+    )
+
+
+def generate_code(
+        n: int = 5
+) -> str:
+    return "-".join(
+        gen_rnd_string() for _ in range(n)
+    )

@@ -25,7 +25,7 @@ DEALINGS IN THE SOFTWARE.
 # ------ Core ------
 from ..bot import Bot
 from ..models import Database, Errors
-from ..utils import embed_wrong, period, text_to_seconds
+from ..utils import embed_wrong, period, text_to_seconds, generate_code
 # ------ Discord ------
 from discord import Interaction, app_commands, ui, Role, Embed
 from discord.ext.commands import Cog
@@ -44,15 +44,20 @@ class Create(Cog):
 
     @app_commands.command(name="create", description="Create a code.")
     @app_commands.default_permissions(administrator=True)
-    async def slash(self, interaction: Interaction, code: str, role: Role) -> None:
+    async def slash(self, interaction: Interaction, role: Role, code: str = None) -> None:
         bot_role = interaction.guild.get_member(self.bot.user.id).top_role
         # Checks if the bot top role higher than the role that will give.
         if bot_role > role:
             async with Database() as db:
                 try:
-                    # ------------------------
-                    # Checks if the code exist.
-                    await db.get_code(code=code, guild_id=interaction.guild_id)
+                    if code is None:
+                        while True:
+                            # Generating a random code.
+                            code = generate_code(n=4)
+                            # Checks if the code exist.
+                            await db.get_code(code=code, guild_id=interaction.guild_id)
+                    else:
+                        await db.get_code(code=code, guild_id=interaction.guild_id)
                     embed = embed_wrong(msg=f"Code is already exists")
                     await interaction.response.send_message(embed=embed, ephemeral=True)
                 except Errors.CodeNotFound:
