@@ -1,24 +1,26 @@
 # Discode
 
+---
+[![Discord](https://img.shields.io/discord/938786168592547880)](https://discord.gg/hH4ZkNg6cA)
+[![Github](https://img.shields.io/badge/Github-MrSniFo-blue.svg)](https://github.com/MrSniFo)
+
 This bot enables users to redeem custom codes and receive temporary or lifetime roles.
 
-[![Discord](https://img.shields.io/badge/Discord-Snifo-blue.svg)](https://discord.gg/hH4ZkNg6cA)
-[![Shoppy](https://img.shields.io/badge/Shoppy-SniFo-blue.svg)](https://shoppy.gg/@snifo)
-[![Github](https://img.shields.io/badge/Github-MrSniFo-blue.svg)](https://github.com/MrSniFo)
+
 
 Note: Run the Bot using `launcher.py` and keep it running for an hour, so it syncs all the slash commands.
 
 ## Commands
 
-`/code *[role] [code]`
+`/code [code]`
 
-`/redeem *[code]`
+`/redeem [code]`
 
-`/create *[code]`
+`/create [code]`
 
-`/remove *[code]`
+`/remove [code]`
 
-`/log *[channel]`
+`/log [channel]`
 
 ### Create code
 Time Format: `1y 7d 3h 10m 30s`
